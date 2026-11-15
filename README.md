@@ -34,12 +34,12 @@ if your skill is 40 >= it starts casting spells based of you skill level
 
 
 0 – 40	NPC Training	N/A	Pay a Mage guildmaster or vendor (such as in New Haven) to train you directly up to ~40 skill.
->= 45 	Wall of Stone    
->= 55 	Fire Field         
->= 65   Poison Field
->= 75   Paralyze Field
->= 90   Energy Field
->= 120  Earthquake
+41 - 45 	Wall of Stone    
+46 - 55 	Fire Field         
+56 - 65   Poison Field
+65 - 75   Paralyze Field
+76 - 90   Energy Field
+91 - 120  Earthquake
 
 if you chose the 100-skill path it advances the script to the next section 
 
@@ -51,10 +51,10 @@ you get a congratulation popup script advances to Mysticism
 as before goes through the cycles of spells until the path goal has been reached
 
 0 – 40 "Mysticism is too low to begin scripted training. Visit a Mystic vendor in Ter Mur, such as the Royal City, and train to at least 40 skill.
->= 63   Stone Form
->= 80   Cleansing Winds
->= 95   Hail Storm
->= 120 Rising Colosus
+41 - 63   Stone Form
+64 - 80   Cleansing Winds
+80 - 95   Hail Storm
+96> - 120 Rising Colossus
 
 as with magery mysticism will stop and continue at 100 skill if that is the path you chose at the beginning
 upon completion of this school you get a congratulation 
@@ -66,16 +66,16 @@ taking you through the school of spellweaving
 since there are no trainers for spellweaving we have to start from 0
 
 
->=  20 Arcane Circle *the script will pause with a popup telling you
+0 - 20 Arcane Circle *the script will pause with a popup telling you
 Arcane Circle requires you to stand on an Arcane Circle, Pentagram, or Abattoir.
 and waits for you to get into position and click continue*
->=  33 Immolate Weapon *another popup will open Equip any
+21 - 33 Immolate Weapon *another popup will open Equip any
 melee weapon before training Immolating Weapon. click when ready*
->= 44 Reaper Form
->= 60 Summon Fey *script will cast release then heal you*
->= Essence of wind
->= 90 WildFire
->= 120 Word of Death
+32 - 44 Reaper Form
+45 - 60 Summon Fey *script will cast release then heal you*
+61 - 74 Essence of wind
+75 - 90 WildFire
+90 - 120 Word of Death
 
 again if you chose the 100 skill path that is where it ends
 
