@@ -50,7 +50,7 @@ once the goal is reached
 you get a congratulation popup script advances to Mysticism
 as before goes through the cycles of spells until the path goal has been reached
 
-0 – 40 "Mysticism is too low to begin scripted training. Visit a Mystic vendor in Ter Mur, such as the Royal City, and train to at least 40 skill.
+0 – 40 "Mysticism is too low to begin scripted training. Visit a Mystic vendor in Ter Mur, such as the Royal City, and train to at least 40 skill
 41 - 63   Stone Form
 64 - 80   Cleansing Winds
 80 - 95   Hail Storm
