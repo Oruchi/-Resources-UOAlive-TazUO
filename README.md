@@ -1,108 +1,121 @@
-This is a Full trainer for a Pure Summoner
+# Pure Summoner Trainer
 
-throughout your journey there will be 2 constants beginning to end
+This script trains the six skills in the Pure Summoner template. It uses two timing constants throughout:
 
-if your heal is below 75% you will be healed
+- `CHECK_INTERVAL` controls how often the script checks conditions.
+- `TARGET_TIMEOUT` controls how long it waits for a target cursor.
 
-each spell has its own minimum mana to cast
-if your total mana is less then the current spells req. mana you will stop 
-and regenerate mana until mana is full again
+The training goal is selected when the script starts: **Grandmaster (100)** or **Legendary (120)**.
 
+## Mana and Healing
 
+Each training spell has its own minimum mana requirement. If mana is below the current spell’s requirement, the script waits until mana is full before continuing.
 
-When you first run the script, it gives you a disclaimer
+The script casts Greater Heal when health falls below 75% during the Mysticism phase and during the Summon Fey and Word of Death Spellweaving phases. Healing is not checked during every phase.
 
-Make sure you are in a safe spot like your house or a non-guard-zone area
-so area-of-effect damage does not flag you with guards.
-Reminder: You must have ZERO Necromancy and ZERO Spirit Speak,
-including skill bonuses from armor or weapons.
+## Startup
 
-Then you choose your path 
-Grandmaster (100 skill)
-or
-Legendary (100 skill)
+When the script starts, it displays a safety notice:
 
-if you choose Legendary there is a Notice that pops up
+> Make sure you are in a safe spot like your house or a non-guard-zone area so area-of-effect damage does not flag you with guards.
+>
+> You must have ZERO Necromancy and ZERO Spirit Speak, including skill bonuses from armor or weapons.
 
-In order to get to 120 in all 6 skills, you will need to consume
-PowerScrolls(120) for Evaluating Intelligence, Focus, Magery, Meditation,
-Mysticism and Spellweaving.
+Then choose a path:
 
-once you click continue if your skill is less then 40 it tells you to go see a trainer
-if your skill is 40 >= it starts casting spells based of you skill level
+- **Grandmaster:** train to 100
+- **Legendary:** train to 120
 
+Choosing Legendary displays a Power Scroll notice. You will need 120 Power Scrolls for Evaluating Intelligence, Focus, Magery, Meditation, Mysticism, and Spellweaving.
 
+## Magery
 
-0 – 40	NPC Training	N/A	Pay a Mage guildmaster or vendor (such as in New Haven) to train you directly up to ~40 skill
-41 - 45 	Wall of Stone    
-46 - 55 	Fire Field         
-56 - 65   Poison Field
-65 - 75   Paralyze Field
-76 - 90   Energy Field
-91 - 120  Earthquake
+If Magery is **40.0 or lower**, the script tells you to train with an NPC. At skill above 40, it selects a spell based on your current skill:
 
-if you chose the 100-skill path it advances the script to the next section 
+| Magery skill | Spell |
+|---|---|
+| Above 40 through 45 | Wall of Stone |
+| Above 45 through 55 | Fire Field |
+| Above 55 through 65 | Poison Field |
+| Above 65 through 75 | Paralyze Field |
+| Above 75 through 90 | Energy Field |
+| Above 90 through your selected goal | Earthquake |
 
-once Magary has reached its goal the script advances to Evaluating Intellegene
-if you skill is below the path goal 
-the script starts casting Reactive armor until the path goal is reached
-once the goal is reached
-you get a congratulation popup script advances to Mysticism
-as before goes through the cycles of spells until the path goal has been reached
+At the selected goal, the script moves on to Evaluating Intelligence.
 
-0 – 40 "Mysticism is too low to begin scripted training. Visit a Mystic vendor in Ter Mur, such as the Royal City, and train to at least 40 skill
-41 - 63   Stone Form
-64 - 80   Cleansing Winds
-80 - 95   Hail Storm
-96> - 120 Rising Colossus
+## Evaluating Intelligence
 
-as with magery mysticism will stop and continue at 100 skill if that is the path you chose at the beginning
-upon completion of this school you get a congratulation 
-before starting spellweaving script will ask you if you have completed the quest that unlocks spellweaving
-if you chose NO it tells you to go complete the quest
-when you chose yes the script continues
+If Evaluating Intelligence is below your selected goal, the script repeatedly casts Reactive Armor until it reaches the goal. When mana drops below 4, the script waits for mana to refill.
 
-taking you through the school of spellweaving
-since there are no trainers for spellweaving we have to start from 0
+After the goal is reached, a congratulations popup appears and the script moves on to Mysticism.
 
+## Mysticism
 
-0 - 20 Arcane Circle *the script will pause with a popup telling you
-Arcane Circle requires you to stand on an Arcane Circle, Pentagram, or Abattoir.
-and waits for you to get into position and click continue*
-21 - 33 Immolate Weapon *another popup will open Equip any
-melee weapon before training Immolating Weapon. click when ready*
-32 - 44 Reaper Form
-45 - 60 Summon Fey *script will cast release then heal you*
-61 - 74 Essence of wind
-75 - 90 WildFire
-90 - 120 Word of Death
+If Mysticism is below 40, the script advises you to train with a Mystic vendor in Ter Mur, such as the Royal City. Otherwise, it selects a spell based on your current skill:
 
-again if you chose the 100 skill path that is where it ends
+| Mysticism skill | Spell |
+|---|---|
+| 40 through below 63 | Stone Form |
+| 63 through below 80 | Cleansing Winds |
+| 80 through below 95 | Hail Storm |
+| 95 through your selected goal | Rising Colossus |
 
-throughout this school of Mage there are 3 Milestone a popup will open
+The script checks your health during this phase and casts Greater Heal below 75%. Rising Colossus is targeted at the tile in front of you, then released.
 
-Developing Summoner — Spellweaving 50
+At the selected goal, a congratulations popup appears.
+
+## Spellweaving Quest
+
+Before Spellweaving training, the script asks whether you completed the quest that unlocks Spellweaving.
+
+- Choosing **No** displays a reminder to complete the quest, then ends the script.
+- Choosing **Yes** continues to Spellweaving training.
+
+Spellweaving has no NPC trainer, so scripted training begins at 0.
+
+## Spellweaving
+
+The script trains with these spells:
+
+| Spellweaving skill | Spell |
+|---|---|
+| 0 through below 20 | Arcane Circle |
+| 20 through below 33 | Immolating Weapon |
+| 33 through below 44 | Reaper Form |
+| 44 through below 60 | Summon Fey |
+| 60 through below 74 | Essence of Wind |
+| 74 through below 90 | Wildfire |
+| 90 through your selected goal | Word of Death |
+
+Before Arcane Circle training, a popup reminds you to stand on an Arcane Circle, Pentagram, or Abattoir. Before Immolating Weapon training, a popup reminds you to equip a melee weapon.
+
+During Summon Fey training, the script casts the spell, attempts to release the summoned Fey, and casts Greater Heal if your health is below 75%. During Word of Death training, it casts Greater Heal below 75% as needed.
+
+Training ends at your selected goal: 100 for Grandmaster or 120 for Legendary.
+
+## Spellweaving Milestones
+
+The script displays each milestone popup once when your Spellweaving skill reaches its threshold.
+
+### Developing Summoner — Spellweaving 50
+
 - Rising Colossus drops from 5 follower slots to 3.
 - Magery Elementals and Daemon drop from 4 slots to 2.
 - Animated Weapon uses Mysticism instead of Tactics and Anatomy for scaling, and uses 4 follower slots.
 - Mysticism should already be at your selected goal.
 
--
-- Grandmaster Summoner — Spellweaving 100
+### Grandmaster Summoner — Spellweaving 100
+
 - Summon Creature drops from 5 slots to 2 at 100+ Mysticism and Spellweaving.
 - Animated Weapon drops from 4 slots to 2 and gains Armor Pierce at 100+ Magery, Mysticism, and Spellweaving.
 - Unlocks flexible 5-slot army combinations, such as a 3-slot Colossus and a 2-slot Summon Creature, Elemental, or Animated Weapon.
 
+### Legendary Summoner — Spellweaving 120
 
-Legendary Summoner — Spellweaving 120
 - Greater Elementals and Greater Daemon unlock with upgraded stats and special attacks.
-- Elemental Colossus mutations: Physical, Magma, Energy, Frozen, and Poisonous; duration is about 3 minutes.
+- Elemental Colossus mutations include Physical, Magma, Energy, Frozen, and Poisonous; duration is about 3 minutes.
 - Arcane Fey/Fiend groups can summon up to 5 allies per cast, depending on Arcane Focus.
 - Ethereal Form grants 8% Hit Mana Drain; Ethereal Burst has a 5-minute cooldown.
 - Pocket Colossus stores a spell trigger; Summon Creature lasts about 5 minutes.
-All three milestone popups check Necromancy and Spirit Speak: both must be zero to benefit from the milestone unlocks.
 
-
-when you hit these skill levels these popups will show 
-
-at the end the script will just end
+All three milestone popups check Necromancy and Spirit Speak. Both skills must be **exactly 0** to benefit from the milestone unlocks. If either skill is above 0, the popup warns that you cannot benefit until both are zero.
