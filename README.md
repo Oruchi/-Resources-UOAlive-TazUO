@@ -33,7 +33,7 @@ if your skill is 40 >= it starts casting spells based of you skill level
 
 
 
-0 – 40	NPC Training	N/A	Pay a Mage guildmaster or vendor (such as in New Haven) to train you directly up to ~40 skill.
+0 – 40	NPC Training	N/A	Pay a Mage guildmaster or vendor (such as in New Haven) to train you directly up to ~40 skill
 41 - 45 	Wall of Stone    
 46 - 55 	Fire Field         
 56 - 65   Poison Field
