@@ -1,4 +1,4 @@
-# Pure Summoner Trainer
+# Pure Summoner Trainer For TazUO
 
 This Legion script trains Magery, Evaluating Intelligence, Mysticism, and Spellweaving toward your selected goal: **Grandmaster (100)** or **Legendary (120)**.
 
